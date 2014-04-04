@@ -10,4 +10,4 @@
 
 # Author
 
-Author:: Eventioz (<pablog@eventbrite.com>)
+Author:: Pablo Gutierrez del Castillo (<pablogutierrezdelc@gmail.com>)
