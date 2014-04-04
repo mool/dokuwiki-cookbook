@@ -36,7 +36,6 @@ nginx_site 'dokuwiki'
 ark 'dokuwiki' do
   url "http://download.dokuwiki.org/src/dokuwiki/dokuwiki-#{node['dokuwiki']['version']}.tgz"
   path node['dokuwiki']['dir']
-  #strip_leading_dir false
   owner 'www-data'
   group 'www-data'
   action :put
