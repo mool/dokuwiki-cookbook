@@ -1,0 +1,46 @@
+server {
+  listen 80;
+  server_name <%= node['dokuwiki']['server_name'] %>;
+
+  root <%= node['dokuwiki']['dir'] %>/dokuwiki;
+  index index.php index.html index.htm;
+
+  access_log /var/log/nginx/dokuwiki.access.log;
+  error_log /var/log/nginx/dokuwiki.error.log;
+
+  location ~ \.php$ {
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    # NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+
+    fastcgi_index index.php;
+    include fastcgi_params;
+    if (-f $request_filename) {
+      fastcgi_pass 127.0.0.1:9000;
+    }
+  }
+
+  # Block access to data folders
+  location ~ /(data|conf|bin|inc)/ {
+    deny all;
+  }
+
+  # Deny access to hidden files
+  location ~ /\. {
+    deny all;
+    access_log off;
+  }
+
+  # Don't log robots.txt requests
+  location = /robots.txt {
+    allow all;
+    access_log off;
+  }
+
+  # Setting expire headers
+  location ~* \.(ico|css|js|gif|jpe?g|png)$ {
+    expires 31536000s;
+    access_log off;
+    add_header Pragma public;
+    add_header Cache-Control "max-age=31536000, public";
+  }
+}
