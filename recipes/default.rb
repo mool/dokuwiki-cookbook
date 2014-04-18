@@ -24,7 +24,7 @@ package 'php5-fpm'
 # Install and configure nginx
 include_recipe 'nginx'
 
-template "#{node.nginx.dir}/sites-available/dokuwiki" do
+template "#{node['nginx']['dir']}/sites-available/dokuwiki" do
   source 'dokuwiki-nginx.erb'
   mode '0644'
   notifies :reload, 'service[nginx]'
