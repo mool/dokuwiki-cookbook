@@ -8,3 +8,6 @@ default['dokuwiki']['admin']['login'] = 'admin'
 default['dokuwiki']['admin']['pass'] = '$1$1e1a49b8$40q83WGBdZD06BeSRRRRU/'
 default['dokuwiki']['admin']['name'] = 'Administrator'
 default['dokuwiki']['admin']['mail'] = 'admin@dokuwiki.org'
+
+# Nginx config
+default['nginx']['default_site_enabled'] = false
