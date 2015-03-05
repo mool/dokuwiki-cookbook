@@ -13,7 +13,7 @@ $conf['useheading'] = '1';
 $conf['useacl'] = <%= node['dokuwiki']['useacl'] %>;
 $conf['superuser'] = '@admin';
 $conf['disableactions'] = 'register';
-$conf['authtype'] = <%= node['dokuwiki']['authtype'] %>;
+$conf['authtype'] = '<%= node['dokuwiki']['authtype'] %>';
 
 <% if node['dokuwiki']['authtype'] == 'authldap' -%>
 
