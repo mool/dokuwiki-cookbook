@@ -10,8 +10,39 @@ $conf['breadcrumbs'] = 0;
 $conf['youarehere'] = 1;
 $conf['fullpath'] = 0;
 $conf['useheading'] = '1';
-$conf['useacl'] = 1;
+$conf['useacl'] = <%= node['dokuwiki']['useacl'] %>;
 $conf['superuser'] = '@admin';
 $conf['disableactions'] = 'register';
+$conf['authtype'] = <%= node['dokuwiki']['authtype'] %>;
 
+<% if node['dokuwiki']['authtype'] == 'authldap' -%>
+
+$conf['plugin']['authldap']['server']      = '<%= node['dokuwiki']['plugin']['authldap']['server'] %>'; #instead of the above two settings
+$conf['plugin']['authldap']['usertree']    = '<%= node['dokuwiki']['plugin']['authldap']['usertree'] %>';
+$conf['plugin']['authldap']['grouptree']   = '<%= node['dokuwiki']['plugin']['authldap']['grouptree'] %>';
+$conf['plugin']['authldap']['userfilter']  = '<%= node['dokuwiki']['plugin']['authldap']['userfilter'] %>';
+$conf['plugin']['authldap']['groupfilter'] = '<%= node['dokuwiki']['plugin']['authldap']['groupfilter'] %>';
+ 
+# This is optional but may be required for your server:
+$conf['plugin']['authldap']['version']    = <%= node['dokuwiki']['plugin']['authldap']['version'] %>;
+
+# This enables the use of the STARTTLS command
+$conf['plugin']['authldap']['starttls']   = <%= node['dokuwiki']['plugin']['authldap']['starttls'] %>;
+
+# This is optional and is required to be off when using Active Directory:
+$conf['plugin']['authldap']['referrals']  = <%= node['dokuwiki']['plugin']['authldap']['referrals'] %>;
+
+# Optional bind user and password if anonymous bind is not allowed
+$conf['plugin']['authldap']['binddn']     = '<%= node['dokuwiki']['plugin']['authldap']['binddn'] %>';
+$conf['plugin']['authldap']['bindpw']     = '<%= node['dokuwiki']['plugin']['authldap']['bindpw'] %>';
+
+ 
+# Limit search scope for user and group searches (sub|one|base)
+$conf['plugin']['authldap']['userscope']  = '<%= node['dokuwiki']['plugin']['authldap']['userscope'] %>';
+$conf['plugin']['authldap']['groupscope'] = '<%= node['dokuwiki']['plugin']['authldap']['groupscope'] %>';
+
+# Optional debugging
+$conf['plugin']['authldap']['debug']      = <%= node['dokuwiki']['plugin']['authldap']['debug'] %>;
+
+<% end -%>
 // end auto-generated content
