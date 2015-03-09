@@ -28,7 +28,6 @@ end
 # Install PHP-FPM
 package 'php5-fpm'
 
-
 # Install and configure nginx
 include_recipe 'nginx'
 
