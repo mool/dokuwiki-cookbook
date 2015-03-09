@@ -49,6 +49,7 @@ $conf['plugin']['authldap']['mapping']['name']  = '<%= node['dokuwiki']['plugin'
 $conf['plugin']['authldap']['mapping']['grps']  = array(
                                                          <%- node['dokuwiki']['plugin']['authldap']['mapping']['grps'].each do |key, value| -%>
                                                          '<%= key %>' => '<%= value %>'
+                                                         <%- end -%>
                                                        ); # Where groups are defined in Active Directory
 
 
