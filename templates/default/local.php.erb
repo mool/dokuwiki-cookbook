@@ -17,7 +17,7 @@ $conf['authtype'] = '<%= node['dokuwiki']['authtype'] %>';
 
 <% if node['dokuwiki']['authtype'] == 'authldap' -%>
 
-$conf['plugin']['authldap']['server']      = '<%= node['dokuwiki']['plugin']['authldap']['server'] %>'; #instead of the above two settings
+$conf['plugin']['authldap']['server']      = '<%= node['dokuwiki']['plugin']['authldap']['server'] %>';
 $conf['plugin']['authldap']['usertree']    = '<%= node['dokuwiki']['plugin']['authldap']['usertree'] %>';
 $conf['plugin']['authldap']['grouptree']   = '<%= node['dokuwiki']['plugin']['authldap']['grouptree'] %>';
 $conf['plugin']['authldap']['userfilter']  = '<%= node['dokuwiki']['plugin']['authldap']['userfilter'] %>';
@@ -43,6 +43,14 @@ $conf['plugin']['authldap']['groupscope'] = '<%= node['dokuwiki']['plugin']['aut
 
 # Optional debugging
 $conf['plugin']['authldap']['debug']      = <%= node['dokuwiki']['plugin']['authldap']['debug'] %>;
+
+# Mapping can be used to specify where the internal data is coming from.
+$conf['plugin']['authldap']['mapping']['name']  = '<%= node['dokuwiki']['plugin']['authldap']['mapping']['name'] %>'; # Name of attribute Active Directory stores it's pretty print user name.
+$conf['plugin']['authldap']['mapping']['grps']  = array(
+                                                         <%- node['dokuwiki']['plugin']['authldap']['mapping']['grps'].each do |key, value| -%>
+                                                         '<%= key %>' => '<%= value %>'
+                                                       ); # Where groups are defined in Active Directory
+
 
 <% end -%>
 // end auto-generated content
