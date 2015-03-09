@@ -44,7 +44,8 @@ Add `dokuwiki::default` to the run-list.
 - `node['dokuwiki']['plugin']['authldap']['userscope']` - Limit search scope for user searches (sub|one|base).
 - `node['dokuwiki']['plugin']['authldap']['groupscope']` - Limit search scope for group searches (sub|one|base).
 - `node['dokuwiki']['plugin']['authldap']['debug']` - Debug the LDAP conversations?
-
+- `node['dokuwiki']['plugin']['authldap']['mapping']['name']` - Replace the content of name with first element of this named attribute.
+- `node['dokuwiki']['plugin']['authldap']['mapping']['grps']` - Replace the content of grps with what is provided in the attribute memberof and apply the regexp to every element in it.
 # Author
 
 Author:: Pablo Gutierrez del Castillo (<pablogutierrezdelc@gmail.com>)
