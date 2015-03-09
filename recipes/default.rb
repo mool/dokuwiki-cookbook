@@ -23,7 +23,7 @@ package 'php5-fpm'
 
 package 'php5-ldap' do
   action :install
-  only_if { node['dokuwiki']['authtype'] = 'authldap' }
+  only_if { node['dokuwiki']['authtype'] == 'authldap' }
 end
 
 # Install and configure nginx
