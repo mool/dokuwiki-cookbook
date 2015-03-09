@@ -25,7 +25,7 @@ default['dokuwiki']['plugin']['authldap']['userscope'] = "sub"
 default['dokuwiki']['plugin']['authldap']['groupscope'] = "sub"
 default['dokuwiki']['plugin']['authldap']['debug'] = 0
 default['dokuwiki']['plugin']['authldap']['mapping']['name'] = "displayname"
-default['dokuwiki']['plugin']['authldap']['mapping']['grps'] = [ 'memberof' => '/CN=(.+?),/i' ]
+default['dokuwiki']['plugin']['authldap']['mapping']['grps'] = { 'memberof' => '/CN=(.+?),/i' }
 
 # Nginx config
 default['nginx']['default_site_enabled'] = false
