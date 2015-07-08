@@ -18,6 +18,13 @@
 # limitations under the License.
 #
 
+# Install PHP LDAP extension first to ensure it's ready when PHP FPM loads
+# TODO - use a cookbook to handle installation of PHP.
+package 'php5-ldap' do
+  action :install
+  only_if { node['dokuwiki']['authtype'] == 'authldap' }
+end
+
 # Install PHP-FPM
 package 'php5-fpm'
 
