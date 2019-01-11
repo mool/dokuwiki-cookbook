@@ -26,7 +26,7 @@ Add `dokuwiki::default` to the run-list.
 - `node['dokuwiki']['lang']` - Wiki Language
 - `node['dokuwiki']['license']` - Wiki license
 - `node['dokuwiki']['admin']['login']` - Admin user
-- `node['dokuwiki']['admin']['pass']` - Admin hashed pass, you can generate it in http://sprhost.com/tools/SMD5.php
+- `node['dokuwiki']['admin']['pass']` - Admin hashed pass (you can generate it in http://sprhost.com/tools/SMD5.php)
 - `node['dokuwiki']['admin']['name']` - Admin name
 - `node['dokuwiki']['admin']['mail']` - Admin email address
 - `node['dokuwiki']['authtype']` - Authentication backend to use.
